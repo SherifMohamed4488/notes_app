@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/notes_view_body.dart';
+
 
 
 class NotesView extends StatelessWidget {
@@ -10,8 +12,10 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
+     body : NotesViewBody()
 
     );
 
   }
 }
+
