@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'custom_search_icon.dart';
+
 
 
 class CustomAppBar extends StatelessWidget {
@@ -15,21 +17,11 @@ class CustomAppBar extends StatelessWidget {
         Text("Notes" , style: TextStyle(fontSize: 30),),
         Spacer(),
 
-        Container(
-          height: 49,
-          width: 49,
-          decoration: BoxDecoration(
-
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.white.withValues(alpha: 0.1),
-
-
-          ),
-
-            child: Icon(Icons.search , color: Colors.white, size: 28,))
+        CustomSerachIcon()
       ],
     );
 
 
   }
 }
+
