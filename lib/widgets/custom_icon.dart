@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 
-class CustomSerachIcon extends StatelessWidget {
-  const CustomSerachIcon({
-    super.key,
-  });
+class CustomIcon extends StatelessWidget {
+  CustomIcon({required this.icon});
+
+
+  final IconData icon;
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class CustomSerachIcon extends StatelessWidget {
 
         ),
 
-        child: Icon(Icons.search , color: Colors.white, size: 28,));
+        child: IconButton(onPressed: (){},icon: Icon(  icon , color: Colors.white, size: 28),),);
   }
+
 }

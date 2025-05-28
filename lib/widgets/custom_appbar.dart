@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'custom_search_icon.dart';
+import 'custom_icon.dart';
 
 
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  CustomAppBar({required this.iconData , required this.title});
+
+  final String title ;
+ final IconData iconData;
 
   // This widget is the root of your application.
   @override
@@ -14,14 +17,16 @@ class CustomAppBar extends StatelessWidget {
 
       children: [
 
-        Text("Notes" , style: TextStyle(fontSize: 30),),
+        Text( title, style: TextStyle(fontSize: 30),),
         Spacer(),
 
-        CustomSerachIcon()
+        CustomIcon(icon: iconData,)
       ],
     );
 
 
   }
+
+
 }
 
