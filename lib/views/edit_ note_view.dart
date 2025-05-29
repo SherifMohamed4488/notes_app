@@ -22,11 +22,11 @@ class EditNoteView extends StatelessWidget {
 
         CustomAppBar(iconData: Icons.check, title: "Edit Note"),
          SizedBox(height: 50,),
-         CustomTextFeild(hint: "Title"),
+         CustomTextFeild(hint: "Title" , onSaved:(value){},),
          SizedBox(height: 20,),
 
 
-        CustomTextFeild(hint: "Content" , maxLines : 5)
+        CustomTextFeild(hint: "Content" , maxLines : 5 , onSaved: (value){},)
         ]
 
         ),
