@@ -42,6 +42,8 @@ class CustomTextFeild extends StatelessWidget {
         hintText: hint,
         hintStyle: TextStyle(color: kPrimaryColor , fontSize: 16),
 
+
+        border: outlineBorder(Colors.white),
         enabledBorder: outlineBorder(Colors.white),
         focusedBorder: outlineBorder(kPrimaryColor),
       ),
