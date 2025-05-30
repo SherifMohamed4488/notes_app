@@ -5,9 +5,14 @@ import 'constants.dart';
 
 class CustomButton extends StatelessWidget {
 
-  CustomButton({ required this.text , required this.onTap});
+  CustomButton({
+    // required this.text ,
 
-  String text ;
+    required this.onTap , this.isLoading  = false});
+
+  bool isLoading ;
+
+  // String text ;
 
   VoidCallback? onTap;
 
@@ -20,7 +25,9 @@ class CustomButton extends StatelessWidget {
         height: 60,
         width: double.infinity,
 
-        child: Center(child: Text(text,style: TextStyle(color:Colors.black, fontSize: 20  , fontWeight: FontWeight.bold),)),
+        child: Center(
+
+            child:isLoading ? SizedBox( height: 24 , width: 24,child: CircularProgressIndicator()) : const Text("Add",style: TextStyle(color:Colors.black, fontSize: 20  , fontWeight: FontWeight.bold),)),
 
       ),
     );

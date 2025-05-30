@@ -40,7 +40,7 @@ class CustomTextFeild extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(vertical: 24 , horizontal: 16),
         hintText: hint,
-        hintStyle: TextStyle(color: kPrimaryColor , fontSize: 16),
+        hintStyle: TextStyle(color: Colors.white , fontSize: 16),
 
 
         border: outlineBorder(Colors.white),
