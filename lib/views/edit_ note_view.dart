@@ -1,13 +1,29 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app_project_tenth/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app_project_tenth/models/note_model.dart';
 import 'package:notes_app_project_tenth/widgets/custom_appbar.dart';
 import 'package:notes_app_project_tenth/widgets/custom_text_feild.dart';
 
-class EditNoteView extends StatelessWidget {
-  const EditNoteView({super.key});
+class EditNoteView extends StatefulWidget {
+  EditNoteView({required this.n});
 
   static String id = "edit note view";
-  // This widget is the root of your application.
+  final NoteModel  n ;
+
+
+
+  @override
+  State<EditNoteView> createState() => _EditNoteViewState();
+}
+
+class _EditNoteViewState extends State<EditNoteView> {
+
+
+
+   String ? title , content ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,16 +33,30 @@ class EditNoteView extends StatelessWidget {
         child: Column(
           children: [
 
-          SizedBox(height: 50,),
+          const SizedBox(height: 50,),
 
 
-        CustomAppBar(iconData: Icons.check, title: "Edit Note"),
-         SizedBox(height: 50,),
-         CustomTextFeild(hint: "Title" , onSaved:(value){},),
-         SizedBox(height: 20,),
+        CustomAppBar(iconData: Icons.check,
+
+            onpressed:(){
+
+              widget.n.title = title ?? widget.n.title;
+              widget.n.subTitle = content ?? widget.n.subTitle;
+              widget.n.save();
+              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+              Navigator.pop(context);
+
+            }  ,
+
+            title: "Edit Note"
+        ),
+
+        const  SizedBox(height: 50,),
+            CustomTextFeild(hint: widget.n.title , onChanged:(value){ title = value;},),
+        const SizedBox(height: 20,),
 
 
-        CustomTextFeild(hint: "Content" , maxLines : 5 , onSaved: (value){},)
+        CustomTextFeild(hint: widget.n.subTitle , maxLines : 5 , onChanged: (value){ content = value;},)
         ]
 
         ),

@@ -4,11 +4,12 @@ import 'package:notes_app_project_tenth/widgets/constants.dart';
 
 
 class CustomTextFeild extends StatelessWidget {
-  CustomTextFeild( {required this.hint , this.maxLines = 1 , required this.onSaved});
+  CustomTextFeild( {required this.hint , this.maxLines = 1 ,  this.onSaved , this.onChanged});
 
   final String hint ;
 
- final void  Function(String ?)  onSaved ;
+ final void  Function(String ?) ? onSaved ;
+ final void  Function(String ?) ?  onChanged ;
 
 
   final int maxLines;
@@ -19,7 +20,7 @@ class CustomTextFeild extends StatelessWidget {
 
 
     return TextFormField(
-
+      onChanged: onChanged ,
       onSaved: onSaved ,
       validator: (value){
 

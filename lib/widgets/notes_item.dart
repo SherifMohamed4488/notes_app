@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app_project_tenth/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app_project_tenth/models/note_model.dart';
 import 'package:notes_app_project_tenth/views/edit_%20note_view.dart';
 
@@ -17,7 +19,11 @@ final NoteModel note ;
 
       onTap: (){
 
-        Navigator.pushNamed(context, EditNoteView.id);
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+
+          return EditNoteView(n: note,);
+
+        }));
       },
       child: Padding(
         padding: const EdgeInsets.only(top: 4),
@@ -48,7 +54,13 @@ final NoteModel note ;
             child: Text(note.subTitle , style: TextStyle( fontSize: 20, color: Colors.black.withValues(alpha: 0.5)),),
           ),
 
-          trailing: IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.trash , color: Colors.black , size: 30,)),
+          trailing: IconButton(
+              onPressed: (){
+            note.delete();
+            BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+
+          },
+              icon: Icon(FontAwesomeIcons.trash , color: Colors.black , size: 30,)),
 
         ),
         SizedBox(height: 40,),

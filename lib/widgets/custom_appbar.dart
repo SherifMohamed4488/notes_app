@@ -5,10 +5,11 @@ import 'custom_icon.dart';
 
 
 class CustomAppBar extends StatelessWidget {
-  CustomAppBar({required this.iconData , required this.title});
+  CustomAppBar({required this.iconData , required this.title , this.onpressed});
 
   final String title ;
  final IconData iconData;
+ final void Function() ? onpressed ;
 
   // This widget is the root of your application.
   @override
@@ -20,7 +21,7 @@ class CustomAppBar extends StatelessWidget {
         Text( title, style: TextStyle(fontSize: 30),),
         Spacer(),
 
-        CustomIcon(icon: iconData,)
+        CustomIcon(icon: iconData, onPress: onpressed,)
       ],
     );
 
