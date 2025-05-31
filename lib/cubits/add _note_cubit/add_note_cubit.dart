@@ -10,6 +10,8 @@ class AddNoteCubit extends Cubit<AddNoteState>{
 
   AddNoteCubit() : super(AddNoteInitial());
 
+   // List <NoteModel> notess = [];
+
     addNote(NoteModel note)async{
 
 

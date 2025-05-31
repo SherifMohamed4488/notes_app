@@ -12,14 +12,19 @@ import 'package:notes_app_project_tenth/widgets/constants.dart';
 import 'cubits/add _note_cubit/add_note_cubit.dart';
 
 void main() async {
-  runApp( NotesApp());
+ await Hive.initFlutter();
 
-  await Hive.initFlutter();
   Hive.registerAdapter(NoteModelAdapter());
 
-  await Hive.openBox(kNotesBox);
+  await Hive.openBox<NoteModel>(kNotesBox);
 
-   Bloc.observer = SimpleBlocObserver();
+  // await Hive.box<NoteModel>(kNotesBox).add(NoteModel(title: "ad ", color: Colors.white.value, subTitle: "tsts", date: DateTime.now().toString()));
+
+  print("elements of box : ${Hive.box<NoteModel>(kNotesBox).length}");
+  Bloc.observer = SimpleBlocObserver();
+  runApp( NotesApp());
+
+
 
 }
 

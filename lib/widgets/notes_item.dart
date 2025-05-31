@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app_project_tenth/models/note_model.dart';
 import 'package:notes_app_project_tenth/views/edit_%20note_view.dart';
 
 
 class NotesItem extends StatelessWidget {
-  const NotesItem({
-    super.key,
-  });
+  NotesItem({ required this.note});
+
+
+final NoteModel note ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class NotesItem extends StatelessWidget {
 
             decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Color(0xffFFCD7A)
+            color: Color(note.color)
             ),
 
 
@@ -37,12 +40,12 @@ class NotesItem extends StatelessWidget {
 
           title: Padding(
             padding: const EdgeInsets.only(top: 24),
-            child: Text("Flutter tips" , style: TextStyle(color: Colors.black , fontSize: 30) ,),
+            child: Text(note.title , style: TextStyle(color: Colors.black , fontSize: 30) ,),
           ),
 
           subtitle: Padding(
             padding: const EdgeInsets.only(top: 14 ),
-            child: Text("Build your career with Tharwat Samy" , style: TextStyle( fontSize: 20, color: Colors.black.withValues(alpha: 0.5)),),
+            child: Text(note.subTitle , style: TextStyle( fontSize: 20, color: Colors.black.withValues(alpha: 0.5)),),
           ),
 
           trailing: IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.trash , color: Colors.black , size: 30,)),
@@ -51,7 +54,7 @@ class NotesItem extends StatelessWidget {
         SizedBox(height: 40,),
         Padding(
           padding: const EdgeInsets.only(bottom: 8.0 , right: 24),
-          child: Text("may21,2022" , style: TextStyle(color: Colors.black.withValues(alpha: 0.5)),),
+          child: Text(note.date , style: TextStyle(color: Colors.black.withValues(alpha: 0.5)),),
         )
               ],
 
