@@ -1,0 +1,66 @@
+
+import 'package:flutter/material.dart';
+
+import '../models/note_model.dart';
+import 'colors_list_view.dart';
+import 'constants.dart';
+
+class EditNoteColorsList extends StatefulWidget {
+
+  EditNoteColorsList({required this.note});
+
+
+  NoteModel note ;
+
+
+  @override
+  State<EditNoteColorsList> createState() => _EditNoteColorsListState();
+}
+
+class _EditNoteColorsListState extends State<EditNoteColorsList> {
+  late int currentIndex ;
+
+
+  void initState(){
+    currentIndex = kColors.indexOf(Color(widget.note.color));
+    super.initState();
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  SizedBox(
+      height: 74,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: kColors.length,
+          itemBuilder: (context , index) {
+
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: GestureDetector(
+
+                onTap:(){
+
+                  currentIndex =index;
+
+                  widget.note.color = kColors[index].toARGB32();
+                  setState(() {
+
+                  });
+                } ,
+                child: ColorItem(
+                  color: kColors [index],
+
+                  isActive: currentIndex == index ,
+
+                ),
+              ),
+            );
+
+
+          }
+      ),
+    );
+  }
+}

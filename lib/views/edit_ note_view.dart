@@ -5,6 +5,7 @@ import 'package:notes_app_project_tenth/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app_project_tenth/models/note_model.dart';
 import 'package:notes_app_project_tenth/widgets/custom_appbar.dart';
 import 'package:notes_app_project_tenth/widgets/custom_text_feild.dart';
+import '../widgets/edit_note_view_colors.dart';
 
 class EditNoteView extends StatefulWidget {
   EditNoteView({required this.n});
@@ -56,7 +57,11 @@ class _EditNoteViewState extends State<EditNoteView> {
         const SizedBox(height: 20,),
 
 
-        CustomTextFeild(hint: widget.n.subTitle , maxLines : 5 , onChanged: (value){ content = value;},)
+        CustomTextFeild(hint: widget.n.subTitle , maxLines : 5 , onChanged: (value){ content = value;},),
+
+            SizedBox(height: 15,),
+
+            EditNoteColorsList(note: widget.n),
         ]
 
         ),
@@ -64,3 +69,4 @@ class _EditNoteViewState extends State<EditNoteView> {
     );
   }
 }
+
